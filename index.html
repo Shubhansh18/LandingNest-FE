@@ -189,7 +189,7 @@
         <div x-show="step === 3" x-transition>
           <div class="mb-4">
             <label class="block text-sm font-medium text-gray-700">Calendly Link (Please provide your <a href="https://calendly.com" style="color:green;"><u>CALENDLY</u></a> event link)</label>
-            <input x-model="form.calendly_url" name="calendly_url" placeholder="https://calendly.com/... (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+            <input x-model="form.calendly_link" name="calendly_link" placeholder="https://calendly.com/... (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
           </div>
             <div class="mb-4">
               <label class="block text-sm font-medium text-gray-700">Intro Video URL (If you have an introduction video please enter the URL)</label>
@@ -263,7 +263,7 @@
             intro_video_url: '',
             hero_image_url: '',
             formspree_url: '',
-            calendly_url: ''
+            calendly_link: ''
         },
         init() {
             this.step = 1;
@@ -307,7 +307,7 @@
           }
 
           try {
-            const response = await fetch("http://127.0.0.1:8000/generate", {
+            const response = await fetch("https://landingnest-be-1.onrender.com/generate", {
               method: "POST",
               body: formData,
             });
