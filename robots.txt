@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://landingnest.cotravels.in/sitemap.xml
