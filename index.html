@@ -88,7 +88,7 @@
       <p class="text-lg text-white mb-6">
         Instantly generate AI-powered landing pages for your SaaS idea
       </p>
-      <a href="#generator" class="inline-block bg-green-700 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-700 transition">Generate Now</a>
+      <a href="#generator" class="inline-block bg-green-700 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-700 transition">Generate For Free</a>
     </section>
 
     <!-- Features Section -->
@@ -255,9 +255,13 @@
           <div x-show="success" class="text-green-600">
             ✅ Landing page generated successfully!
             <br />
-            <button x-show="success" @click="downloadZip" type="button" class="px-4 py-2 bg-green-500 text-white rounded">
+            <button x-show="success" @click="downloadZip" type="button" class="px-4 py-2 bg-green-500 shadow-lg hover:bg-green-700 text-white rounded">
             Download ZIP
             </button>
+            <a href="/feedback.html" target="_blank"
+              class="bg-green-500 text-white px-4 py-2 rounded shadow-lg hover:bg-green-700 transition z-50">
+              💬 Feedback
+            </a>
           </div>
 
           <div x-show="error" class="text-sm text-red-500">

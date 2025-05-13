@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - LandingNest</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HGB1VBTJH6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HGB1VBTJH6');
+</script>
+
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+  <main class="max-w-3xl mx-auto px-6 py-12">
+    <div class="bg-white shadow-lg rounded-xl p-8">
+      <h1 class="text-3xl font-bold text-teal-600 mb-6">💬 We'd Love Your Feedback</h1>
+      <p class="text-gray-600 mb-8">
+        Thank you for using LandingNest! Your feedback helps us improve. Please share your experience below.
+      </p>
+
+      <form action="https://formspree.io/f/xgvkyrya" method="POST" class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Your Name</label>
+          <input type="text" name="name" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-teal-300" placeholder="Jane Doe">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Your Email</label>
+          <input type="email" name="email" required class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-teal-300" placeholder="you@example.com">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">What did you use LandingNest for?</label>
+          <input type="text" name="use_case" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-teal-300" placeholder="e.g. MVP launch, idea validation">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">How was your experience?</label>
+          <textarea name="experience" rows="4" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-teal-300" placeholder="What did you like or struggle with?"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Suggestions for improvement</label>
+          <textarea name="suggestions" rows="3" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-teal-300" placeholder="What features or fixes would you love to see?"></textarea>
+        </div>
+
+        <button type="submit" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">
+          Submit Feedback
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-8">
+    &copy; 2025 LandingNest • Made with ❤️ for indie founders
+  </footer>
+</body>
+</html>
