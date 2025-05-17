@@ -3,23 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Stunning Landing Pages | LandingNest</title>
-    <meta name="description" content="LandingNest helps you create beautiful, high-converting landing pages quickly. Ideal for startups, marketers, and developers.">
-    <meta name="keywords" content="landing page builder, create landing page, startup website, landing page tool, high converting pages, LandingNest">
-    <meta name="author" content="LandingNest Team">
+    <title>AI-Powered Landing Page Generator | LandingNest</title>
+  
+    <meta name="description" content="LandingNest lets you instantly generate responsive, professional and high converting landing pages using AI. Built for startup founders, freelancers, students, and service providers." />
+    <meta name="keywords" content="AI landing page builder, generate landing page, no code startup website, freelancer site builder, student project showcase, LandingNest tool" />
+    <meta name="author" content="LandingNest Team" />
 
-    <!-- Open Graph Tags for Social Sharing -->
-    <meta property="og:title" content="Create Stunning Landing Pages | LandingNest" />
-    <meta property="og:description" content="Quickly create, customize, and deploy landing pages that convert. Free & powerful tool that helps you create AI based landing pages." />
+    <meta property="og:title" content="AI-Powered Landing Page Generator | LandingNest" />
+    <meta property="og:description" content="Generate and download stunning landing pages in seconds. Perfect for SaaS founders, startups, freelancers, student projects, and businesses." />
     <meta property="og:url" content="https://landingnest.cotravels.in" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://landingnest.cotravels.in/assets/banner.jpg" /> <!-- replace with real image URL -->
+    <meta property="og:image" content="https://landingnest.cotravels.in/assets/banner.jpg" /> <!-- Replace with final image -->
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Create Stunning Landing Pages | LandingNest" />
-    <meta name="twitter:description" content="Build and launch landing pages in minutes with our intuitive editor." />
+    <meta name="twitter:title" content="Generate Landing Pages with AI | LandingNest" />
+    <meta name="twitter:description" content="Build and launch landing pages instantly with our AI-powered generator. No code needed." />
     <meta name="twitter:image" content="https://landingnest.cotravels.in/assets/banner.jpg" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -85,9 +86,10 @@
     <section class="text-center py-20 px-4 bg-white shadow-md" style="background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20201009/pngtree-dark-green-cyan-paper-cut-minimalist-background-for-brochure-poster-banner-image_405384.jpg'); background-size: cover;">
       <h1 class="text-4xl font-bold mb-2 text-white">LandingNest</h1>
       <h2 class="mb-4 text-gray-400">Where your product’s journey takes flight</h2><br>
-      <p class="text-lg text-white mb-6">
-        Instantly generate AI-powered landing pages for your SaaS idea
-      </p>
+      <h2 class="text-gray-200 mb-6">
+        Generate a live, responsive landing page for your project in 60 seconds.<br>
+        Whether you’re a student, a freelancer, or a founder — get your idea online fast.
+      </h2>
       <a href="#generator" class="inline-block bg-green-700 text-white px-6 py-3 rounded-lg shadow hover:bg-teal-700 transition">Generate For Free</a>
     </section>
 
@@ -168,50 +170,169 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     <section id="generator" class="min-h-screen bg-gradient-to-br from-gray-100 to-white py-20 px-4">
-    <div class="max-w-2xl mx-auto bg-white shadow-xl rounded-xl p-8" x-data="multiForm()" x-init="init()">
+    <div class="max-w-2xl mx-auto bg-white shadow-xl rounded-xl p-8">
       <h2 class="text-3xl font-bold text-center text-teal-700 mb-8">Generate Your Landing Page</h2>
 
-      <form x-data="generateHandler()" @submit.prevent="generatePage" enctype="multipart/form-data" class="space-y-6">
+      <form x-data="formWithGenerateHandler()" @submit.prevent="generatePage" enctype="multipart/form-data" class="space-y-6">
 
         <!-- Step 1 -->
-        <div x-show="step === 1" x-transition>
+        <div x-show="step === 1" x-transition class="space-y-4">
+          <h3 class="text-xl font-semibold text-teal-600">Step 1: Choose Template Type</h3>
             <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700">Product Name <section style="color:red; display: inline;">*</section></label>
-            <input x-model="form.product_name" name="product_name" required placeholder="e.g. SaaSify" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+            <label class="block text-sm font-medium text-gray-700">Template <span class="text-red-500">*</span></label>
+            <select name="template_type" x-model="form.template_type" required class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500">
+              <option value="" disabled selected> -- Select -- </option>
+              <option value="startup">SaaS Startup Page (Waitlist + Calendly)</option>
+              <option value="freelancer">Freelancer/Portfolio Page</option>
+              <option value="services">Business Service Listing Page</option>
+              <option value="student_project">Student Project Showcase</option>
+            </select>
             </div>
             <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700">Tagline <section style="color:red; display: inline;">*</section></label>
+            <label class="block text-sm font-medium text-gray-700"> Name <span class="text-red-500">*</span></label>
+            <input x-model="form.name" name="name" required placeholder="e.g. SaaSify" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+            </div>
+            <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Tagline <span class="text-red-500">*</span></label>
             <input x-model="form.tagline" name="tagline" required placeholder="Your catchy one-liner" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
             </div>
-            <div>
-            <label class="block text-sm font-medium text-gray-700">Your Email <section style="color:red; display: inline;">*</section></label>
+            <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Your Email <span class="text-red-500">*</span></label>
             <input x-model="form.email" name="email" required type="email" placeholder="you@example.com" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
             </div>
         </div>
 
         <!-- Step 2 -->
-        <div x-show="step === 2" x-transition>
-            <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700">Target Audience <section style="color:red; display: inline;">*</section></label>
-            <textarea x-model="form.target_audience" name="target_audience" rows="3" placeholder="e.g. Early-stage SaaS founders" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500"></textarea>
-            </div>
-            <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700">Key Features <section style="color:red; display: inline;">*</section></label>
-            <textarea x-model="form.features" name="features" rows="3" placeholder="List features..." class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500"></textarea>
-            </div>
-            <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700">Formspree Link <section style="color:red; display: inline;">* </section> (Please register on <a href="https://formspree.io/" target="_blank" style="color:green;"><u>FORMSPREE</u></a> and share your form endpoint)</label>
-            <p class="text-xs text-gray-500 mb-1"></p>
-            <input x-model="form.formspree_url" name="formspree_url" placeholder="https://formspree.io/..." class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
-            </div>
-            <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700">Style</label>
-            <input x-model="form.style" name="style" placeholder="e.g. modern, minimal, material (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
-            </div>
-            <div>
-            <label class="block text-sm font-medium text-gray-700">Color Theme</label>
-            <input x-model="form.color_theme" name="color_theme" placeholder="e.g. green, rose (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
-            </div>
+        <div x-show="step === 2" x-transition class="space-y-4">
+            <h3 class="text-xl font-semibold text-teal-600">Step 2: Enter Content</h3>
+
+            <!-- SaaS Startup Fields -->
+            <template x-if="form.template_type === 'startup'">
+              <div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Target Audience <span class="text-red-500">*</span></label>
+                <textarea x-model="form.target_audience" name="target_audience" rows="3" placeholder="e.g. Early-stage SaaS founders" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Key Features <span class="text-red-500">*</span></label>
+                <textarea x-model="form.features" name="features" rows="3" placeholder="List features..." class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Formspree Link <span class="text-red-500">*</span> (Please register on <a href="https://formspree.io/" target="_blank" style="color:green;"><u>FORMSPREE</u></a> and share your form endpoint)</label>
+                <input x-model="form.formspree_url" name="formspree_url" placeholder="https://formspree.io/..." class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Style</label>
+                <input x-model="form.style" name="style" placeholder="e.g. modern, minimal, material (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+                <div>
+                <label class="block text-sm font-medium text-gray-700">Color Theme</label>
+                <input x-model="form.color_theme" name="color_theme" placeholder="e.g. green, rose (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+              </div>
+            </template>
+
+            <!-- Freelancer -->
+            <template x-if="form.template_type === 'freelancer'">
+              <div class="space-y-4">
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Skills / Services <span class="text-red-500">*</span></label>
+                <textarea x-model="form.skills" name="skills" required placeholder="e.g. Graphic Designing, Web Development" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">About You <span class="text-red-500">*</span></label>
+                <textarea x-model="form.about_you" name="about_you" required placeholder="Write about yourself in less than 100 words" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Formspree Link <span class="text-red-500">*</span> (Please register on <a href="https://formspree.io/" target="_blank" style="color:green;"><u>FORMSPREE</u></a> and share your form endpoint)</label>
+                <input x-model="form.formspree_url" name="formspree_url" placeholder="https://formspree.io/..." class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Portfolio Links (GitHub, Behance, Drive)</label>
+                <input x-model="form.portfolio_links" name="portfolio_links" placeholder="Share your portfolio link (Optional)" class="w-full px-4 py-2 border rounded-lg" />
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Style</label>
+                <input x-model="form.style" name="style" placeholder="e.g. modern, minimal, material (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+                <div>
+                <label class="block text-sm font-medium text-gray-700">Color Theme</label>
+                <input x-model="form.color_theme" name="color_theme" placeholder="e.g. green, rose (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+              </div>
+            </template>
+
+            <!-- Services Business -->
+            <template x-if="form.template_type === 'services'">
+              <div class="space-y-4">
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Services Offered <span class="text-red-500">*</span></label>  
+                <textarea x-model="form.services" name="services" required placeholder="e.g. Marketing Services, Hotel and Restaurant" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Target Audience <span class="text-red-500">*</span></label>  
+                <textarea x-model="form.target_audience" name="target_audience" required placeholder="Target Audience" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Formspree Link <span class="text-red-500">*</span> (Please register on <a href="https://formspree.io/" target="_blank" style="color:green;"><u>FORMSPREE</u></a> and share your form endpoint)</label>
+                <input x-model="form.formspree_url" name="formspree_url" placeholder="https://formspree.io/..." class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Why Choose Us?</label>  
+                <textarea x-model="form.why_us" name="why_us" placeholder="Please describe what you offer (Optional)" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Pricing Details</label>  
+                <textarea x-model="form.pricing" name="pricing" placeholder="Please enter prices of service offered if applicable (Optional)" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Style</label>
+                <input x-model="form.style" name="style" placeholder="e.g. modern, minimal, material (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+                <div>
+                <label class="block text-sm font-medium text-gray-700">Color Theme</label>
+                <input x-model="form.color_theme" name="color_theme" placeholder="e.g. green, rose (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+              </div>
+            </template>
+
+            <!-- Student Project -->
+            <template x-if="form.template_type === 'student_project'">
+              <div class="space-y-4">
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Short Project Description <span class="text-red-500">*</span></label>
+                <textarea x-model="form.description" name="description" required placeholder="Provide a short description of your project under 150 words" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Problem & Solution <span class="text-red-500">*</span></label>
+                <textarea x-model="form.problem_solution" name="problem_solution" placeholder="Describe the problem and solution of your project under 150 words" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div>
+                <label class="block text-sm font-medium text-gray-700">Formspree Link <span class="text-red-500">*</span> (Please register on <a href="https://formspree.io/" target="_blank" style="color:green;"><u>FORMSPREE</u></a> and share your form endpoint)</label>
+                <input x-model="form.formspree_url" name="formspree_url" placeholder="https://formspree.io/..." class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Tech Stack</label>
+                <input x-model="form.tech_stack" name="tech_stack" placeholder="e.g. Python, FastAPI, React (Optional)" class="w-full px-4 py-2 border rounded-lg" />
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">GitHub / Demo Link </label>
+                <input x-model="form.github_link" name="github_link" placeholder="e.g. https://github.com/user_name/project_name.git (Optional)" class="w-full px-4 py-2 border rounded-lg" />
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Team Info </label>
+                <textarea x-model="form.team_info" name="team_info" placeholder="e.g. Member 1 - https://www.linkedin.com/in/... (Optional)" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Style</label>
+                <input x-model="form.style" name="style" placeholder="e.g. modern, minimal, material (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+                <div>
+                <label class="block text-sm font-medium text-gray-700">Color Theme</label>
+                <input x-model="form.color_theme" name="color_theme" placeholder="e.g. green, rose (Optional)" class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500" />
+                </div>
+              </div>
+            </template>
         </div>
 
         <!-- Step 3 -->
@@ -255,11 +376,11 @@
           <div x-show="success" class="text-green-600">
             ✅ Landing page generated successfully!
             <br />
-            <button x-show="success" @click="downloadZip" type="button" class="px-4 py-2 bg-green-500 shadow-lg hover:bg-green-700 text-white rounded">
+            <button x-show="success" @click="downloadZip" type="button" class="px-3 py-2 bg-green-500 shadow-lg hover:bg-green-700 text-white rounded">
             Download ZIP
             </button>
             <a href="/feedback.html" target="_blank"
-              class="bg-green-500 text-white px-4 py-2 rounded shadow-lg hover:bg-green-700 transition z-50">
+              class="bg-green-500 text-white px-3 py-2 rounded shadow-lg hover:bg-green-700 transition z-50">
               💬 Feedback
             </a>
           </div>
@@ -282,97 +403,95 @@
     </script>
 
     <script>
-    function multiForm() {
+      function formWithGenerateHandler() {
         return {
-        step: 1,
-        form: {
-            product_name: '',
-            tagline: '',
-            email: '',
-            target_audience: '',
-            features: '',
-            style: '',
-            color_theme: '',
-            intro_video_url: '',
-            hero_image_url: '',
-            formspree_url: '',
-            calendly_link: ''
-        },
-        init() {
-            this.step = 1;
-        },
-        nextStep() {
+          step: 1,
+          form: {
+            template_type: '', name: '', email: '', tagline: '', features: '', target_audience: '',
+            calendly_link: '', formspree_url: '', intro_video_url: '', hero_image_url: '', hero_image_file: '', 
+            style: '', skills: '', about_you: '', portfolio_links: '', color_theme: '',services: '', why_us: '', 
+            pricing: '', description: '', problem_solution: '', tech_stack: '', github_link: '', team_info: ''
+          },
+          loading: false, 
+          success: false,
+          error: false,
+          zipUrl: "",
+      
+          nextStep() {
             // Step 1 validation
-            if (this.step === 1 && (!this.form.product_name || !this.form.tagline || !this.form.email)) {
-            alert('Please fill all required fields.');
-            return;
+            if (this.step === 1 && (!this.form.name || !this.form.tagline || !this.form.email || !this.form.template_type)) {
+              alert('Please fill all required fields.');
+              return;
             }
+
             // Step 2 validation
-            if (this.step === 2 && (!this.form.target_audience || !this.form.features || !this.form.formspree_url)) {
-            alert('Please complete all required fields.');
-            return;
+            if (this.step === 2) {
+              if (this.form.template_type === "startup" && (!this.form.target_audience || !this.form.features || !this.form.formspree_url)) {
+                alert('Please complete all required fields.');
+                return;
+              }
+              if (this.form.template_type === "freelancer" && (!this.form.skills || !this.form.about_you || !this.form.formspree_url)) {
+                alert('Please complete all required fields.');
+                return;
+              }
+              if (this.form.template_type === "services" && (!this.form.services || !this.form.target_audience || !this.form.formspree_url)) {
+                alert('Please complete all required fields.');
+                return;
+              }
+              if (this.form.template_type === "student_project" && (!this.form.description || !this.form.problem_solution || !this.form.formspree_url)) {
+                alert('Please complete all required fields.');
+                return;
+              }
             }
             this.step++;
-        }
-        };
-    }
+          },
+      
+          async generatePage(event) {
+            this.loading = true;
+            this.success = false;
+            this.error = false;
+      
+            const form = event.target;
+            const formData = new FormData(form);
 
-    function generateHandler() {
-      return {
-        loading: false,
-        success: false,
-        error: false,
-        zipUrl: "",
+            const file = form.hero_image_file?.files[0];
+            if (file && file.size > 1000000) {
+              alert('Hero image must be less than 1 MB.');
+              this.loading = false;
+              return;
+            }
+      
+            try {
+              const response = await fetch("https://landingnest-be-1.onrender.com/generate", {
+                method: "POST",
+                body: formData,
+              });
 
-        async generatePage(event) {
-          this.loading = true;
-          this.success = false;
-          this.error = false;
+              if (!response.ok) throw new Error("Failed to generate");
+              const blob = await response.blob();
+              this.zipUrl = URL.createObjectURL(blob);
+              this.success = true;
+            } catch (err) {
+              console.error(err);
+              this.error = true;
+            } finally {
+              this.loading = false;
+            }
+          },
+          downloadZip() {
+            if (!this.zipUrl) return;
 
-          const form = event.target;
-          const formData = new FormData(form);
-
-          const file = form.hero_image_file?.files[0];
-          if (file && file.size > 1000000) {
-            alert('Hero image must be less than 1 MB.');
-            this.loading = false;
-            return;
+            const link = document.createElement("a");
+            link.href = this.zipUrl;
+            link.download = "landing_page.zip";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
           }
-
-          try {
-            const response = await fetch("https://landingnest-be-1.onrender.com/generate", {
-              method: "POST",
-              body: formData,
-            });
-
-            if (!response.ok) throw new Error("Failed to generate");
-            const blob = await response.blob();
-            this.zipUrl = URL.createObjectURL(blob);
-            this.success = true;
-
-          } catch (err) {
-            console.error(err);
-            this.error = true;
-          } finally {
-            this.loading = false;
-          }
-        },
-
-        downloadZip() {
-          if (!this.zipUrl) return;
-
-          const link = document.createElement("a");
-          link.href = this.zipUrl;
-          link.download = "landing_page.zip";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
         }
-      };
-    }
-
+      }
     </script>
-
+      
     <!-- Calendly badge widget begin -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
